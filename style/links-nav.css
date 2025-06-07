@@ -1,0 +1,6 @@
+.links-nav{
+    @apply bg-primary absolute w-40
+    left-1/2 -translate-x-1/2 bottom-full md:bottom-auto
+    md:rounded-b-xl md:rounded-t-none rounded-b-none rounded-t-xl
+    border-secondary md:border-[3px] md:border-t-0 border-[3px] border-b-0 hidden;
+}

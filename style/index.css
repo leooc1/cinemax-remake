@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import './header.css';
+@import './loading.css';
+@import './input-theme.css';
+@import './links-nav.css';
+
+@theme {
+  --color-primary: #2D2D2D;
+  --color-secondary: #FF7A00;
+  --color-bgl: #BBBBBB;
+  --color-bgd: #474747;
+}
+
+:root {
+  --primary: #2D2D2D;
+  --secondary: #FF7A00;
+  --bgl:#BBBBBB;/* background light */
+  --bgd: #474747;/* background dark */
+}
+
+.filter-mobile{
+  @apply w-64 flex-col items-center py-4 gap-4;
+  overflow-y: scroll;
+  position: fixed;
+  height: 100vh;
+  background-color: var(--primary);
+  top: 0;
+  left: 0;
+  padding-top: 100px;
+}
+
+.filter{
+  @apply w-64 min-w-[256px] flex-col items-center py-4 gap-4
+  md:flex hidden
+  md:h-[calc(100vh-80px)] md:sticky md:top-20;
+  overflow-y: scroll;
+}
+
+.filter::-webkit-scrollbar, .filter-mobile::-webkit-scrollbar, .scroll-custom::-webkit-scrollbar{
+  height: 6px;
+  width: 4px;
+  background-color: var(--primary);
+}
+.filter::-webkit-scrollbar-thumb, .filter-mobile::-webkit-scrollbar-thumb, .scroll-custom::-webkit-scrollbar-thumb{
+  border-radius: 28px;
+  background-color: var(--secondary);
+}

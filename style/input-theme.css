@@ -1,0 +1,51 @@
+.container-theme {
+    --color: #a5a5b0;
+    --size: 30px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: var(--size);
+    user-select: none;
+    /* fill: var(--color); */
+    fill: #000;
+  }
+  
+  .container-theme .moon {
+    position: absolute;
+    animation: keyframes-fill .5s;
+  }
+  
+  .container-theme .sun {
+    position: absolute;
+    display: none;
+    animation: keyframes-fill .5s;
+  }
+  
+  .container-theme input:checked ~ .moon {
+    display: none;
+  }
+  
+  .container-theme input:checked ~ .sun {
+    display: block;
+  }
+  
+  .container-theme input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  @keyframes keyframes-fill {
+    0% {
+      transform: rotate(-360deg) scale(0);
+      opacity: 0;
+    }
+  
+    75% {
+      transform: rotate(25deg);
+    }
+  }
