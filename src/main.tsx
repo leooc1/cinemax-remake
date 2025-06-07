@@ -14,12 +14,13 @@ import FilmeTopRated from './pages/FilmeTopRated.tsx';
 import FilmeDetails from './pages/FilmeDetails.tsx';
 import FilmeUpcoming from './pages/FilmeUpcoming.tsx';
 import SearchPage from './pages/SearchPage.tsx';
+import NotFound from './components/NotFound.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <></>,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
@@ -68,54 +69,9 @@ const router = createBrowserRouter([
         path: "/search/:name",
         element: <SearchPage />,
       },
-      
-    ],
-  },
 
-  /* {
-    path: "/auth",
-    element: <Auth />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "/assinar",
-    element: <AssinaturaProvider>
-      <Assinar />
-    </AssinaturaProvider>,
-    errorElement: <NotFound />,
-    children: [
-      {
-        path: "",
-        element: <Cadastro />,
-      },
-      {
-        path: "forma-pagamento",
-        element: <FormaPagamento />,
-        errorElement: <NotFound />,
-      },
-      {
-        path: "pix",
-        element: <Pix />,
-      },
-      {
-        path: "boleto",
-        element: <Boleto />,
-      },
-      {
-        path: "credit-card",
-        element: <CartaoCredito />,
-      },
     ],
   },
-  {
-    path: "/relatorio",
-    element: <Relatorio />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "/reset-senha",
-    element: <EsqueciSenha />,
-  }, */
 ]);
 
 
