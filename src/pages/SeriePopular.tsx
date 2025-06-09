@@ -34,7 +34,7 @@ export default function SeriePopular() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [loading])
     return (

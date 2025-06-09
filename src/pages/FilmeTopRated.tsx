@@ -34,7 +34,7 @@ export default function FilmeTopRated() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [loading])
     return (

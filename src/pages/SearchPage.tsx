@@ -55,7 +55,7 @@ export default function SearchPage() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [loading])
     return (

@@ -34,7 +34,7 @@ export default function SerieTopRated() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [loading])
     return (

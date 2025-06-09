@@ -34,7 +34,7 @@ export default function SerieOnTheAir() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [loading])
     return (

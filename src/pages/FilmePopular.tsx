@@ -34,7 +34,7 @@ export default function FilmePopular() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [loading])
     return (

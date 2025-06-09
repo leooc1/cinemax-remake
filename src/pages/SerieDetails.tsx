@@ -64,7 +64,7 @@ export default function SerieDetails() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [loading])
     return (

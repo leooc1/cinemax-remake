@@ -74,8 +74,10 @@ export default function Home() {
         setLoading(false)
     }
     useEffect(() => {
-        getItens()
-    }, [])
+        if (loading){
+            // getItens()
+        }
+    }, [loading])
     return (
         <>
             <SearchButton />

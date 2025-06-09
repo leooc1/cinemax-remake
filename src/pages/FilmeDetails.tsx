@@ -65,7 +65,7 @@ export default function FilmeDetails() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [loading])
     return (

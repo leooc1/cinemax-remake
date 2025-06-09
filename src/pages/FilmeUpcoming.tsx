@@ -33,7 +33,7 @@ export default function FilmeUpcoming() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [itens, loading])
     return (

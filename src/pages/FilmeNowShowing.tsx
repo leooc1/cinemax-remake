@@ -34,7 +34,7 @@ export default function FilmeNowShowing() {
     }
     useEffect(() => {
         if (loading) {
-            getItems()
+            //getItems()
         }
     }, [loading])
     return (
