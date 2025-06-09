@@ -3,12 +3,12 @@ import Loading from "../components/Loading"
 import SearchButton from "../components/header/SearchButton"
 import ItemFound from "../components/ItemFound"
 
-const API_ROUTE = import.meta.env.VITE_API_ROUTE as string
-const OPTIONS_FETCH = import.meta.env.VITE_OPTIONS_FETCH as string
-const API_KEY_AUTH = import.meta.env.VITE_API_KEY_AUTH as string
 
 
 export default function SearchPage() {
+    const API_ROUTE = import.meta.env.VITE_API_ROUTE as string
+    const OPTIONS_FETCH = import.meta.env.VITE_OPTIONS_FETCH as string
+    const API_KEY_AUTH = import.meta.env.VITE_API_KEY_AUTH as string
     const [field, setField] = useState('movie')
     const [loading, setLoading] = useState(true)
     const [itens, setItens] = useState<{

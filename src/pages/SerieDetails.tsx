@@ -5,11 +5,11 @@ import Details from '../components/details/Details'
 import DetailsMobile from '../components/details/DetailsMobile'
 import RecommendationItem from '../components/RecommendationItem'
 
-const API_ROUTE = import.meta.env.VITE_API_ROUTE as string
-const OPTIONS_FETCH = import.meta.env.VITE_OPTIONS_FETCH as string
-const API_KEY_AUTH = import.meta.env.VITE_API_KEY_AUTH as string
 
 export default function SerieDetails() {
+    const API_ROUTE = import.meta.env.VITE_API_ROUTE as string
+    const OPTIONS_FETCH = import.meta.env.VITE_OPTIONS_FETCH as string
+    const API_KEY_AUTH = import.meta.env.VITE_API_KEY_AUTH as string
     const [loading, setLoading] = useState(true)
     const [itens, setItens] = useState<{
         data: {
