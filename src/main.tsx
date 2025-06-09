@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router';
+import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom';
 import '../style/index.css';
 import App from './App.tsx';
 import Home from './pages/Home.tsx';
@@ -18,62 +18,80 @@ import NotFound from './components/NotFound.tsx';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     errorElement: <NotFound />,
     children: [
       {
-        path: "",
+        index: true,
         element: <Home />,
       },
-      // series
+      // Séries
       {
-        path: "serie/popular",
-        element: <SeriePopular />,
+        path: 'serie',
+        element: <Outlet />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="popular" replace />,
+          },
+          {
+            path: 'popular',
+            element: <SeriePopular />,
+          },
+          {
+            path: 'on-the-air',
+            element: <SerieOnTheAir />,
+          },
+          {
+            path: 'top-rated',
+            element: <SerieTopRated />,
+          },
+          {
+            path: ':id',
+            element: <SerieDetails />,
+          },
+        ],
       },
+      // Filmes
       {
-        path: "serie/on-the-air",
-        element: <SerieOnTheAir />,
+        path: 'movie',
+        element: <Outlet />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="popular" replace />,
+          },
+          {
+            path: 'popular',
+            element: <FilmePopular />,
+          },
+          {
+            path: 'now-showing',
+            element: <FilmeNowShowing />,
+          },
+          {
+            path: 'top-rated',
+            element: <FilmeTopRated />,
+          },
+          {
+            path: 'upcoming',
+            element: <FilmeUpcoming />,
+          },
+          {
+            path: ':id',
+            element: <FilmeDetails />,
+          },
+        ],
       },
+      // Busca
       {
-        path: "serie/top-rated",
-        element: <SerieTopRated />,
-      },
-      {
-        path: "serie/:id",
-        element: <SerieDetails />,
-      },
-      // filme
-      {
-        path: "movie/popular",
-        element: <FilmePopular />,
-      },
-      {
-        path: "movie/now-showing",
-        element: <FilmeNowShowing />,
-      },
-      {
-        path: "movie/top-rated",
-        element: <FilmeTopRated />,
-      },
-      {
-        path: "movie/upcoming",
-        element: <FilmeUpcoming />,
-      },
-      {
-        path: "movie/:id",
-        element: <FilmeDetails />,
-      },
-      // search
-      {
-        path: "search/:name",
+        path: 'search/:name',
         element: <SearchPage />,
       },
-
     ],
   },
 ]);
-
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

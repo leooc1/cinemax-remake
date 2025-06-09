@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import LinksFilmes from "./components/header/LinksFilmes";
 import LinksSeries from "./components/header/LinksSeries";
 
