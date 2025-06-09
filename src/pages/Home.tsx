@@ -1,11 +1,13 @@
+import { useState, useEffect } from "react"
+import CardItem from "../components/CardItem"
 import SearchButton from "../components/header/SearchButton"
 import Loading from "../components/Loading"
 
+const API_ROUTE = import.meta.env.VITE_API_ROUTE as string
+const OPTIONS_FETCH = import.meta.env.VITE_OPTIONS_FETCH as string
+const API_KEY_AUTH = import.meta.env.VITE_API_KEY_AUTH as string
 
 export default function Home() {
-    /* const API_ROUTE = import.meta.env.VITE_API_ROUTE as string
-    const OPTIONS_FETCH = import.meta.env.VITE_OPTIONS_FETCH as string
-    const API_KEY_AUTH = import.meta.env.VITE_API_KEY_AUTH as string
     const [loading, setLoading] = useState(true)
     const [itens, setItens] = useState<{
         tending: {
@@ -74,18 +76,18 @@ export default function Home() {
     useEffect(() => {
         if (loading)
             getItens()
-    }, [loading]) */
+    }, [loading])
 
     return (
         <>
             <SearchButton />
-            {true ?
+            {loading ?
                 <Loading />
                 :
                 <main className={`bg-bgd flex min-h-screen flex-col`}>
                     <h2 className={`text-center font-extrabold text-2xl text-white mt-5`}>Tendência</h2>
                     <section className="mx-3 flex gap-4 overflow-x-scroll scroll-custom pb-4">
-                        {/* {itens?.tending?.length ?
+                        {itens?.tending?.length ?
                             itens.tending.map((item: {
                                 id: number;
                                 title?: string;
@@ -96,12 +98,12 @@ export default function Home() {
                                 first_air_date?: string;
                                 media_type?: 'movie' | 'tv';
                             }, key: number) => (<CardItem key={key} item={item} />))
-                            : null} */}
+                            : null}
                     </section>
                     <h2 className={`text-center font-extrabold text-2xl text-white mt-5`}>Descobrir</h2>
                     <h3 className={`text-center font-extrabold text-xl text-white mt-5`}>Filmes</h3>
                     <section className="mx-3 flex gap-4 overflow-x-scroll scroll-custom pb-4">
-                        {/* {itens?.discover?.movie?.length ?
+                        {itens?.discover?.movie?.length ?
                             itens.discover.movie.map((item: {
                                 id: number;
                                 title?: string;
@@ -112,11 +114,11 @@ export default function Home() {
                                 first_air_date?: string;
                                 media_type?: 'movie' | 'tv';
                             }, key: number) => (<CardItem type="movie" key={key} item={item} />))
-                            : null} */}
+                            : null}
                     </section>
                     <h3 className={`text-center font-extrabold text-xl text-white mt-5`}>Series</h3>
                     <section className="mx-3 flex gap-4 overflow-x-scroll scroll-custom pb-4">
-                        {/* {itens?.discover?.serie?.length ?
+                        {itens?.discover?.serie?.length ?
                             itens.discover.serie.map((item: {
                                 id: number;
                                 title?: string;
@@ -127,7 +129,7 @@ export default function Home() {
                                 first_air_date?: string;
                                 media_type?: 'movie' | 'tv';
                             }, key: number) => (<CardItem type="serie" key={key} item={item} />))
-                            : null} */}
+                            : null}
                     </section>
                 </main>}
         </>

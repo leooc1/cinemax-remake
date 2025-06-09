@@ -1,11 +1,15 @@
+import { useState, useEffect } from 'react'
+import Details from '../components/details/Details'
+import DetailsMobile from '../components/details/DetailsMobile'
 import SearchButton from '../components/header/SearchButton'
 import Loading from '../components/Loading'
+import RecommendationItem from '../components/RecommendationItem'
 
+const API_ROUTE = import.meta.env.VITE_API_ROUTE as string
+const OPTIONS_FETCH = import.meta.env.VITE_OPTIONS_FETCH as string
+const API_KEY_AUTH = import.meta.env.VITE_API_KEY_AUTH as string
 
 export default function FilmeDetails() {
-    /* const API_ROUTE = import.meta.env.VITE_API_ROUTE as string
-    const OPTIONS_FETCH = import.meta.env.VITE_OPTIONS_FETCH as string
-    const API_KEY_AUTH = import.meta.env.VITE_API_KEY_AUTH as string
     const [loading, setLoading] = useState(true)
     const [itens, setItens] = useState<{
         data: {
@@ -63,15 +67,15 @@ export default function FilmeDetails() {
         if (loading) {
             getItems()
         }
-    }, [loading]) */
+    }, [loading])
     return (
         <>
             <SearchButton />
-            {true ?
+            {loading ?
                 <Loading />
                 :
                 <main className={`bg-bgd flex min-h-screen flex-col`}>
-                    {/* {itens?.data ?
+                    {itens?.data ?
                         <><section className={`w-full h-fit relative bg-center bg-cover flex`}
                             style={{ backgroundImage: `url('https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${itens.data.backdrop_path}')` }}>
                             <div className={`bg-primary w-full h-full absolute opacity-90`}></div>
@@ -91,7 +95,7 @@ export default function FilmeDetails() {
                                 </div>
                             </section></>
                         :
-                        <p>Filme não encontrado</p>} */}
+                        <p>Filme não encontrado</p>}
 
                 </main>}
         </>
