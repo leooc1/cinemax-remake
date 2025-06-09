@@ -23,50 +23,50 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home />,
       },
       // series
       {
-        path: "/serie/popular",
+        path: "serie/popular",
         element: <SeriePopular />,
       },
       {
-        path: "/serie/on-the-air",
+        path: "serie/on-the-air",
         element: <SerieOnTheAir />,
       },
       {
-        path: "/serie/top-rated",
+        path: "serie/top-rated",
         element: <SerieTopRated />,
       },
       {
-        path: "/serie/:id",
+        path: "serie/:id",
         element: <SerieDetails />,
       },
       // filme
       {
-        path: "/movie/popular",
+        path: "movie/popular",
         element: <FilmePopular />,
       },
       {
-        path: "/movie/now-showing",
+        path: "movie/now-showing",
         element: <FilmeNowShowing />,
       },
       {
-        path: "/movie/top-rated",
+        path: "movie/top-rated",
         element: <FilmeTopRated />,
       },
       {
-        path: "/movie/upcoming",
+        path: "movie/upcoming",
         element: <FilmeUpcoming />,
       },
       {
-        path: "/movie/:id",
+        path: "movie/:id",
         element: <FilmeDetails />,
       },
       // search
       {
-        path: "/search/:name",
+        path: "search/:name",
         element: <SearchPage />,
       },
 
