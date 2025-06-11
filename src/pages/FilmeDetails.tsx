@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Details from '../components/details/Details'
 import DetailsMobile from '../components/details/DetailsMobile'
 import SearchButton from '../components/header/SearchButton'
 import Loading from '../components/Loading'
 import RecommendationItem from '../components/RecommendationItem'
+import AssistirTrailer from '../components/trailer/AssistirTrailer'
 
 const API_ROUTE = import.meta.env.VITE_API_ROUTE as string
 const OPTIONS_FETCH = import.meta.env.VITE_OPTIONS_FETCH as string
@@ -11,6 +12,17 @@ const API_KEY_AUTH = import.meta.env.VITE_API_KEY_AUTH as string
 
 export default function FilmeDetails() {
     const [loading, setLoading] = useState(true)
+    const [trailer, setTrailer] = useState<
+        {
+            name: string
+            key: string
+            site: string
+            size: number
+            type: string
+            official: boolean
+            published_at: string
+            id: string
+        }[] | null>(null)
     const [itens, setItens] = useState<{
         data: {
             id: number;
@@ -57,12 +69,25 @@ export default function FilmeDetails() {
             .then(data => data)
             .catch(err => console.log(err))
 
+        const trailers = await fetch(`${API_ROUTE}/movie/${id}/videos?language=pt-BR`,
+            JSON.parse(OPTIONS_FETCH))
+            .then(response => response.json())
+            .then(data => data)
+            .catch(err => console.log(err))
+
+
         if (data && recommendations)
             setItens({ data, recommendations: [...recommendations.results] })
         else
             setItens(null)
+
+        if (trailers?.results.length > 0)
+            setTrailer(trailers?.results)
+        else
+            setTrailer(null)
         setLoading(false)
     }
+
     useEffect(() => {
         if (loading) {
             getItems()
@@ -81,7 +106,14 @@ export default function FilmeDetails() {
                             <div className={`bg-primary w-full h-full absolute opacity-90`}></div>
                             <img className='lg:h-96 md:h-64 h-60 w-fit rounded-xl relative md:my-10 my-5 md:ml-10' src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${itens.data.poster_path}`}
                                 width={600} height={900} alt={itens.data.title || ''} />
-                            <Details item={itens.data} />
+                            <Details item={itens.data}>
+                                {trailer ? <AssistirTrailer trailers={trailer} />
+                                    : <></>}
+                            </Details>
+                            {trailer ? <section className='z-10 flex md:hidden lg:h-96 md:h-64 h-60 md:my-10 my-5 ml-6 items-center'>
+                                <AssistirTrailer trailers={trailer} />
+                            </section>
+                                : <></>}
                         </section>
                             <div className="bg-secondary w-full h-[2px]"></div>
                             <DetailsMobile item={itens.data} />

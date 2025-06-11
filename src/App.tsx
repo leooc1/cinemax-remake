@@ -29,7 +29,7 @@ export default function App() {
         <>
           <Outlet />
         </>
-        <section className='bg-primary w-full md:hidden flex gap-20 h-20 justify-center fixed bottom-0 z-10'>
+        <section className='bg-primary w-full md:hidden flex gap-20 h-20 justify-center fixed bottom-0 z-[1]'>
           <h2 className='active-header'>Filmes
             <LinksFilmes />
           </h2>
@@ -37,7 +37,7 @@ export default function App() {
             <LinksSeries />
           </h2>
         </section>
-        <footer className='bg-primary w-full h-36 flex justify-center py-2 md:mb-0 mb-[79px] z-10'>
+        <footer className='bg-primary w-full h-36 flex justify-center py-2 md:mb-0 mb-[79px]'>
           <div className='text-center border-r border-white px-3 flex flex-col'>
             <p className='font-bold text-white'>Filmes</p>
             <ul>

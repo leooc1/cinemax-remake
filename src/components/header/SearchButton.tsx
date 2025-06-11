@@ -13,7 +13,7 @@ export default function SearchButton() {
     return (
         <>
             {/* <Theme /> */}
-            <button className="fixed top-5 right-6 z-20 cursor-pointer" onClick={toggleSearch}>
+            <button className="fixed top-5 right-6 z-10 cursor-pointer" onClick={toggleSearch}>
                 <img src='/header/search.svg' width={40} height={40} alt='search' />
             </button>
             <search id="search-field" className="bg-primary hidden py-2 sticky top-20 z-30">

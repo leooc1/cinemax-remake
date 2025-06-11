@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom';
 import '../style/index.css';
 import App from './App.tsx';
-import Home from './pages/Home.tsx';
-import SeriePopular from './pages/SeriePopular.tsx';
-import SerieOnTheAir from './pages/SerieOnTheAir.tsx';
-import SerieTopRated from './pages/SerieTopRated.tsx';
-import SerieDetails from './pages/SerieDetails.tsx';
-import FilmePopular from './pages/FilmePopular.tsx';
-import FilmeNowShowing from './pages/FilmeNowShowing.tsx';
-import FilmeTopRated from './pages/FilmeTopRated.tsx';
-import FilmeDetails from './pages/FilmeDetails.tsx';
-import FilmeUpcoming from './pages/FilmeUpcoming.tsx';
-import SearchPage from './pages/SearchPage.tsx';
 import NotFound from './components/NotFound.tsx';
+import FilmeDetails from './pages/FilmeDetails.tsx';
+import FilmeNowShowing from './pages/FilmeNowShowing.tsx';
+import FilmePopular from './pages/FilmePopular.tsx';
+import FilmeTopRated from './pages/FilmeTopRated.tsx';
+import FilmeUpcoming from './pages/FilmeUpcoming.tsx';
+import Home from './pages/Home.tsx';
+import SearchPage from './pages/SearchPage.tsx';
+import SerieDetails from './pages/SerieDetails.tsx';
+import SerieOnTheAir from './pages/SerieOnTheAir.tsx';
+import SeriePopular from './pages/SeriePopular.tsx';
+import SerieTopRated from './pages/SerieTopRated.tsx';
 
 const router = createBrowserRouter([
   {

@@ -1,6 +1,7 @@
+import type { ReactElement } from "react";
 import VoteAverage from "../VoteAverage";
 
-export default function Details({ item }: {
+export default function Details({ item, children }: {
     item: {
         id: number;
         title?: string;
@@ -22,7 +23,8 @@ export default function Details({ item }: {
         vote_average?: number;
         tagline?: string;
         overview?: string;
-    }
+    },
+    children?: ReactElement
 }) {
     function releaseDate(release_date: string) {
         const months = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
@@ -43,6 +45,7 @@ export default function Details({ item }: {
 
     return (
         <section className='relative p-10 md:flex flex-col justify-center hidden'>
+            {children}
             <h2 className={`text-white text-3xl font-semibold`}>{item.title || item.name}</h2>
             <div className={`mt-3 text-white font-light`}>{releaseDate(item.release_date || item.first_air_date || '')} |
                 {item.genres?.map((genres, key: number, array) => (
